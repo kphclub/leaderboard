@@ -18,6 +18,11 @@ async function loadChatData() {
 
     // Also preload monthly data in the background
     populateMonthlyChatData(chatData.monthly);
+
+    // Check if URL has a hash for monthly view
+    if (window.location.hash === '#monthly') {
+      showMonthly();
+    }
   }
 }
 
@@ -74,18 +79,14 @@ function showWeekly() {
   document.getElementById('leaderboard-title').textContent =
     'Weekly Active Members';
 
-  document
-    .getElementById('weekly-btn')
-    .classList.remove('bg-gray-100', 'text-gray-700');
-  document
-    .getElementById('weekly-btn')
-    .classList.add('bg-indigo-600', 'text-white');
-  document
-    .getElementById('monthly-btn')
-    .classList.remove('bg-indigo-600', 'text-white');
-  document
-    .getElementById('monthly-btn')
-    .classList.add('bg-gray-100', 'text-gray-700');
+  // Update buttons
+  document.getElementById('weekly-btn').className =
+    'px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-l-md hover:bg-indigo-700 focus:z-10 focus:outline-none';
+  document.getElementById('monthly-btn').className =
+    'px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-r-md hover:bg-gray-200 focus:z-10 focus:outline-none';
+
+  // Update URL hash
+  window.location.hash = 'weekly';
 
   // Update last updated time
   if (chatData && chatData.weekly) {
@@ -102,18 +103,14 @@ function showMonthly() {
   document.getElementById('leaderboard-title').textContent =
     'Monthly Active Members';
 
-  document
-    .getElementById('monthly-btn')
-    .classList.remove('bg-gray-100', 'text-gray-700');
-  document
-    .getElementById('monthly-btn')
-    .classList.add('bg-indigo-600', 'text-white');
-  document
-    .getElementById('weekly-btn')
-    .classList.remove('bg-indigo-600', 'text-white');
-  document
-    .getElementById('weekly-btn')
-    .classList.add('bg-gray-100', 'text-gray-700');
+  // Update buttons
+  document.getElementById('monthly-btn').className =
+    'px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-r-md hover:bg-indigo-700 focus:z-10 focus:outline-none';
+  document.getElementById('weekly-btn').className =
+    'px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-l-md hover:bg-gray-200 focus:z-10 focus:outline-none';
+
+  // Update URL hash
+  window.location.hash = 'monthly';
 
   // Update last updated time
   if (chatData && chatData.monthly) {
