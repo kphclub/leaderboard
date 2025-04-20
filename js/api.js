@@ -81,10 +81,16 @@ async function getMonthlyChatData() {
  * @returns {string} - HTML for the table row
  */
 function renderLeaderboardRow(user, countField, countLabel) {
+  // Only make the name clickable for the launches list, not for the chat list
+  const nameCell =
+    countLabel === 'launches'
+      ? `<a href="https://launches.kph.club/#${user.name}" target="_blank" class="text-indigo-600 hover:text-indigo-800">${user.name}</a>`
+      : user.name;
+
   return `
     <tr>
       <td class="py-2 px-2 sm:px-4">${user.rank}</td>
-      <td class="py-2 px-2 sm:px-4">${user.name}</td>
+      <td class="py-2 px-2 sm:px-4">${nameCell}</td>
       <td class="py-2 px-2 sm:px-4">${user[countField]}</td>
     </tr>
   `;
