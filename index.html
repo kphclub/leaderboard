@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="https://kph.club/favicon.png" />
+    <title>KPH Leaderboard 🏆</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script defer data-domain="kph" src="https://record.micro.company/script.js"></script>
+    <style>
+      tbody tr:nth-child(even) {
+        background-color: rgba(243, 244, 246, 0.6); /* subtle light gray */
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-2 sm:px-4 py-8">
+      <div class="relative mb-8">
+        <h1 class="text-3xl font-bold text-indigo-700 text-center">
+          KPH Leaderboard 🏆
+        </h1>
+      </div>
+
+      <!-- Weekly Chat Leaders -->
+      <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-medium text-gray-700">Top Weekly Chat Leaders</h3>
+          <a href="chat.html" class="text-indigo-600 hover:text-indigo-800">View all →</a>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-white">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="py-2 px-2 sm:px-4 text-left">Rank</th>
+                <th class="py-2 px-2 sm:px-4 text-left">Name</th>
+                <th class="py-2 px-2 sm:px-4 text-left">Messages</th>
+              </tr>
+            </thead>
+            <tbody id="weekly-chat-leaders">
+              <tr>
+                <td class="py-2 px-4" colspan="3">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Product Launches -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-medium text-gray-700">Top Product Launches</h3>
+          <a href="launches.html" class="text-indigo-600 hover:text-indigo-800">View all →</a>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-white">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="py-2 px-2 sm:px-4 text-left">Rank</th>
+                <th class="py-2 px-2 sm:px-4 text-left">Name</th>
+                <th class="py-2 px-2 sm:px-4 text-left">Launches</th>
+              </tr>
+            </thead>
+            <tbody id="product-launches">
+              <tr>
+                <td class="py-2 px-4" colspan="3">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <footer class="mt-12 text-center text-gray-500 text-sm">
+        <div class="mt-2 mb-2">
+          <a href="https://kph.club" class="text-gray-600 hover:text-gray-800 mx-2">KPH Homepage</a>
+          <a href="launches.html" class="text-gray-600 hover:text-gray-800 mx-2">Launches Leaderboard</a>
+          <a href="chat.html" class="text-gray-600 hover:text-gray-800 mx-2">Chat Leaderboard</a>
+        </div>
+        <p id="updated-time">Updated: Loading...</p>
+      </footer>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html> 
