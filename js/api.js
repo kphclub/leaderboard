@@ -84,7 +84,12 @@ function renderLeaderboardRow(user, countField, countLabel) {
   // Only make the name clickable for the launches list, not for the chat list
   const nameCell =
     countLabel === 'launches'
-      ? `<a href="https://launches.kph.club/#${user.name}" target="_blank" class="text-indigo-600 hover:text-indigo-800">${user.name}</a>`
+      ? `<a href="https://launches.kph.club/#${user.name.replace(
+          / /g,
+          '-'
+        )}" target="_blank" class="text-indigo-600 hover:text-indigo-800">${
+          user.name
+        }</a>`
       : user.name;
 
   return `
