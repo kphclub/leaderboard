@@ -74,6 +74,20 @@ async function getMonthlyChatData() {
 }
 
 /**
+ * Format count values for chat leaderboard
+ * @param {number} count - The actual count
+ * @returns {string} - The formatted count string
+ */
+function formatChatCount(count) {
+  if (count < 5) return '<5';
+  if (count < 10) return '5+';
+  if (count < 25) return '10+';
+  if (count < 50) return '25+';
+  if (count < 100) return '50+';
+  return '100+';
+}
+
+/**
  * Render a row for the leaderboard
  * @param {Object} user - User data
  * @param {string} countField - Name of the count field
@@ -92,11 +106,17 @@ function renderLeaderboardRow(user, countField, countLabel) {
         }</a>`
       : user.name;
 
+  // Format the count based on the leaderboard type
+  const countValue =
+    countLabel !== 'launches'
+      ? formatChatCount(user[countField])
+      : user[countField];
+
   return `
     <tr>
       <td class="py-2 px-2 sm:px-4">${user.rank}</td>
       <td class="py-2 px-2 sm:px-4">${nameCell}</td>
-      <td class="py-2 px-2 sm:px-4">${user[countField]}</td>
+      <td class="py-2 px-2 sm:px-4">${countValue}</td>
     </tr>
   `;
 }
