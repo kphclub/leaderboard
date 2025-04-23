@@ -101,7 +101,7 @@ function renderLeaderboardRow(user, countField, countLabel) {
       ? `<a href="https://launches.kph.club/#${user.name.replace(
           / /g,
           '-'
-        )}" target="_blank" class="text-indigo-600 hover:text-indigo-800">${
+        )}" target="_blank" class="text-indigo-600 hover:text-indigo-800 hover:underline">${
           user.name
         }</a>`
       : user.name;
